@@ -17,3 +17,35 @@
 #   Use methods to break down the problem and make the code easier to read.
 #
 #############################################################################
+
+puts "Hello, what's your name?"
+name = gets.chomp
+puts "Hello " + name + "!" " We're playing a number guessing game.
+I will think of a number and you will guess it."
+
+puts "what is the maximum number do you want to guess from?"
+Max = gets.chomp.to_i
+number = rand(1..Max)
+num_guesses = 0
+
+puts "I'm thinking of a random number from 1 to #{Max}"
+puts "Can you guess it " + name + " ?"
+
+loop do
+print "What is your guess " + name + " ?"
+guess = gets.chomp.to_i
+num_guesses += 1
+
+unless guess == number
+message = if guess > number
+"Too high"
+else
+"Too low"
+end
+puts message
+else
+puts "You got it " + name + "!"
+puts "It took you #{num_guesses} guesses."
+exit
+end
+end
